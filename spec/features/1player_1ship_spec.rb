@@ -1,30 +1,34 @@
-require 'port'
-require 'ship'
+require 'board'
 
-feature 'a player can place a ship in the port' do
-  scenario 'port accepts 1 ship' do
-    port = Port.new
-    port.dock Ship.new
-    expect(port).to be_full
+feature 'create a a board that players can place ships on' do
+  scenario 'board initialized that defines coordinate inputs for players' do
+    board = Board.new ('A1')
+    expect(board.size).to eq 'A1'
   end
 
-  scenario 'ships cannot overlap' do
-    port = Port.new
-    capacity = port::capacity
-    capacity.times{ port.dock Ship.new }
-    expect { port.dock Ship.new }.to raise_error 'Overlap!'
+  scenario 'set up one player mode' do
+    player1 = Player.new("name")
+    expect(player1.name). to eq "name"
+  end
+
+  scenario 'create a ship for a specific player' do
+    ship = Ship.new "chris_ship" , "coordinates"
+    expect(ship.name).to eq "chris_ship"
+  end
+
+  scenario 'give coordinates to ship' do
+  board = Board.new 'A1'
+  ship = Ship.new "name" , "coordinates"
+  expect(ship.coordinates).to eq "coordinates"
 end
+
+  scenario "boat placed on 'board'" do
+    board = Board.new 'A1'
+    ship = Ship.new "name" , "coordinates"
+    expect(board.place(ship)).to eq [ship.coordinates]
+  end
+
+  scenario "player sinks opponent's ship'" do 
+
+
 end
-
-
-
-
-
-
-
-
-
-
-
-
-# array = [[1,2,3,4,5,6,7,8,9,19 ,["a","b","c","d","e","f","j",]]
