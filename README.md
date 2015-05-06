@@ -32,7 +32,7 @@ must remain contained to board dimensions(10x10 squares)
 -Grid:
 
 defines a 10x10 square.
-identifies positions by two coordinates e.g (A10,B6,D4)
+identifies positions by two coordinates e.g (A10,B6,)
 only shows the attacker their shots.(this could include their shot history)
 only shows the defender their ships, and the shots from the attacker.
 
